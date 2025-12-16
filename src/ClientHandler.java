@@ -14,6 +14,7 @@ class ClientHandler implements Runnable {
     @Override
     public void run(){
         try(
+
                 BufferedReader in = new BufferedReader(new InputStreamReader((socket.getInputStream())));
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
         ){
@@ -24,7 +25,7 @@ class ClientHandler implements Runnable {
                 //Elaborazione (Business Logic)
                 String response = inputLine.toUpperCase();
                 //Invio risposta
-                out.println("ECHO: " + response);
+                out.println("eeeECHO: " + response);
             }
         }
         catch (IOException e){
