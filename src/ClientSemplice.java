@@ -9,12 +9,15 @@ public class ClientSemplice {
         final String hostname = "127.0.0.1"; //LocalHost
         final int port = 12345;
 
+
         try(Socket socket = new Socket(hostname, port)){ //se ce connessione...
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Connesso al server. Scrivi qualcosa:");
+            System.out.println("Dalla porta: " + socket.getLocalPort()
+                    + " - Sulla porta:" + socket.getPort()
+                    +" - Connnnnessso al server. Scrivi qualcosa:");
             String userInput;
             while((userInput = scanner.nextLine()) != null){
                 out.println(userInput); //invia al server
